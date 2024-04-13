@@ -38,13 +38,13 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	int		pid;
-	struct	sigaction sig;
+	struct	sigaction sig;	
 
 	i = 0;
 	pid = ft_atoi(argv[1]);
 	sig.sa_handler = confirm_reception;
-	sigaction(SIGUSR1, &sig, NULL);
-	sigaction(SIGUSR2, &sig, NULL);
+	check_sig_state(sigaction(SIGUSR1, &sig, NULL));
+	check_sig_state(sigaction(SIGUSR2, &sig, NULL));
 	if (argc != 3)
 		return(0);
 	else

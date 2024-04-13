@@ -48,3 +48,9 @@ void	ft_putnbr(int num)
 	num = num % 10 + '0';
 	write(1, &num, 1);
 }
+
+void	check_sig_state(int status_num)
+{
+	if (status_num == -1)
+		exit(1);
+}

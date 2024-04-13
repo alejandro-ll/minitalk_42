@@ -9,5 +9,6 @@
 
 int		ft_atoi(const char *str);
 void	ft_putnbr(int num);
+void	check_sig_state(int status_num);
 
 #endif

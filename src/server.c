@@ -37,19 +37,17 @@ int	main(int argc, char **argv)
 
 	sig.sa_sigaction = handler;
 	(void)argv;
-	
 	write(1, "PID: ", 5);
 	ft_putnbr(getpid());
 	write(1, "\nServer is running, waiting the message...\n", 44);
-	sigaction(SIGUSR1, &sig, NULL);
-	sigaction(SIGUSR2, &sig, NULL);
+	check_sig_state(sigaction(SIGUSR1, &sig, NULL));
+	check_sig_state(sigaction(SIGUSR2, &sig, NULL));
 	if (argc != 1)
 		return(0);
 	else
 	{
 		while (1)
 		{
-			//puedo meter control de errores en otra funcion, consultar BARD
 			pause();			
 		}
 	}
